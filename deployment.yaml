@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: star-cake-bakery
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: bakery
+
+  template:
+    metadata:
+      labels:
+        app: bakery
+
+    spec:
+      containers:
+      - name: bakery
+        image: star-cake-bakery:v1
+        ports:
+        - containerPort: 8080
