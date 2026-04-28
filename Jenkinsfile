@@ -9,7 +9,7 @@ pipeline {
 
         stage('Git Clone') {
             steps {
-                git 'https://github.com/yourusername/star-cake-bakery.git'
+                git 'https://github.com/Vijayasaka-112/star-cake-bakery.git'
             }
         }
 
