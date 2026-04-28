@@ -1,0 +1,49 @@
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#fff8f0;
+}
+
+header{
+    background:#ff69b4;
+    color:white;
+    text-align:center;
+    padding:20px;
+}
+
+.cakes{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+    padding:30px;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    width:220px;
+    border-radius:10px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.2);
+    text-align:center;
+}
+
+button{
+    background:#ff69b4;
+    color:white;
+    border:none;
+    padding:10px 15px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background:#e754a6;
+}
+
+footer{
+    text-align:center;
+    padding:15px;
+    background:#222;
+    color:white;
+}
