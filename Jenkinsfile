@@ -12,13 +12,13 @@ stage('Git Clone') {
         url: 'https://github.com/Vijayasaka-112/star-cake-bakery.git'
     }
 }
-            stage('Build') {
-            steps {
-                dir('backend') {
-                    sh 'mvn clean package'
-                }
-            }
+         stage('Build') {
+    steps {
+        dir('backend') {
+            sh 'mvn clean package'
         }
+    }
+}
 
         stage('Docker Build') {
             steps {
