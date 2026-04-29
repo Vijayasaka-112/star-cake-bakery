@@ -22,6 +22,7 @@ pipeline {
 
         stage('Docker Build') {
             steps {
+                sh 'ls backend/target'
                 sh 'docker build -t star-cake-bakery:v1 .'
             }
         }
