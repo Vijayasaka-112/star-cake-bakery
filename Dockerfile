@@ -1,3 +1,5 @@
-FROM openjdk:21
-COPY backend/target/bakery-1.0.jar app.jar
+FROM eclipse-temurin:21-jdk
+
+COPY backend/target/*.jar app.jar
+
 ENTRYPOINT ["java","-jar","/app.jar"]
