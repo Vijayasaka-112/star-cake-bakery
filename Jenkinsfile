@@ -7,22 +7,15 @@ pipeline {
 
     stages {
 
-        stage('Git Clone') {
-            steps {
-                git branch: 'main',
-                    url: 'https://github.com/Vijayasaka-112/star-cake-bakery.git'
-            }
-        }
-
         stage('Build') {
             steps {
-                sh 'cd backend && mvn clean package'
+                sh 'mvn clean package'
             }
         }
 
         stage('Docker Build') {
             steps {
-                sh 'ls backend/target'
+                sh 'ls target'
                 sh 'docker build -t star-cake-bakery:v1 .'
             }
         }
