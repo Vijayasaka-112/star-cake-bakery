@@ -16,7 +16,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                sh 'cd backend && mvn clean package'
             }
         }
 
@@ -32,6 +32,18 @@ pipeline {
                 sh 'kubectl apply -f deployment.yaml'
                 sh 'kubectl apply -f service.yaml'
             }
+        }
+    }
+
+    post {
+        always {
+            echo 'Pipeline execution completed'
+        }
+        success {
+            echo 'Build Successful 🎉'
+        }
+        failure {
+            echo 'Build Failed ❌'
         }
     }
 }
