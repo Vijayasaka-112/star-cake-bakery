@@ -22,8 +22,9 @@ pipeline {
 
         stage('Deploy') {
             steps {
-                sh 'kubectl apply -f deployment.yaml'
-                sh 'kubectl apply -f service.yaml'
+                sh 'docker stop $(docker ps -q) || true'
+                sh 'docker rm $(docker ps -aq) || true'
+                sh 'docker run -d -p 9090:8080 star-cake-bakery:v1'
             }
         }
     }
