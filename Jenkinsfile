@@ -19,11 +19,13 @@ pipeline {
             }
         }
 
-        stage('Deploy') {
+     stage('Deploy') {
     steps {
-        sh 'docker stop $(docker ps -aq) || true'
-        sh 'docker rm $(docker ps -aq) || true'
-        sh 'docker run -d --name cake-app -p 8081:8080 star-cake-bakery:v1'
+        sh '''
+            docker stop cake-app || true
+            docker rm cake-app || true
+            docker run -d --name cake-app -p 8081:8080 star-cake-bakery:v1
+        '''
     }
 }
 
