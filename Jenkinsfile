@@ -39,14 +39,14 @@ pipeline {
         '''
     }
 }
-        stage('Grafana') {
-            steps {
-                sh 'docker stop grafana || true'
-                sh 'docker rm grafana || true'
-                sh 'docker run -d --name grafana -p 3000:3000 grafana/grafana'
-            }
-        }
+       stage('Grafana') {
+    steps {
+        sh '''
+            docker rm -f grafana || true
+            docker run -d --name grafana -p 3000:3000 grafana/grafana
+        '''
     }
+}
 
     post {
         always {
