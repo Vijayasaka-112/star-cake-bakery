@@ -30,12 +30,15 @@ pipeline {
 }
 
         stage('Prometheus') {
-            steps {
-                sh 'docker stop prometheus || true'
-                sh 'docker rm prometheus || true'
-                sh "docker run -d --name prometheus -p 9090:9090 -v \$WORKSPACE/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus"
-            }
-        }
+    steps {
+        sh '''
+            docker rm -f prometheus || true
+            docker run -d --name prometheus -p 9090:9090 \
+            -v /var/lib/jenkins/workspace/YOUR_JOB_NAME/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \
+            prom/prometheus
+        '''
+    }
+}
 
         stage('Grafana') {
             steps {
