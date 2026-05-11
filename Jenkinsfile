@@ -20,12 +20,12 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {
-                sh 'docker stop $(docker ps -aq) || true'
-                sh 'docker rm $(docker ps -aq) || true'
-                sh 'docker run -d --name cake-app -p 8080:8080 star-cake-bakery:v1'
-            }
-        }
+    steps {
+        sh 'docker stop $(docker ps -aq) || true'
+        sh 'docker rm $(docker ps -aq) || true'
+        sh 'docker run -d --name cake-app -p 8081:8080 star-cake-bakery:v1'
+    }
+}
 
         stage('Prometheus') {
             steps {
