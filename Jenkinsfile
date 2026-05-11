@@ -29,17 +29,16 @@ pipeline {
     }
 }
 
-        stage('Prometheus') {
+     stage('Prometheus') {
     steps {
         sh '''
             docker rm -f prometheus || true
             docker run -d --name prometheus -p 9090:9090 \
-            -v /var/lib/jenkins/workspace/YOUR_JOB_NAME/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \
+            -v /var/lib/jenkins/workspace/cake-pipeline/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \
             prom/prometheus
         '''
     }
 }
-
         stage('Grafana') {
             steps {
                 sh 'docker stop grafana || true'
